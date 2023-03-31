@@ -16,11 +16,12 @@ const SideUp = () => {
       {item?.map((item, i) => (
         <div key={i} className="p-2   bg-[#191d20] group rounded-b-md ">
           <div className="flex gap-2 p-1 bg-[#212529] rounded-l-full hover:bg-[#3b434a]  duration-500">
-            <div className="avatar p-1">
-              <div className="w-10 rounded-full flex items-center">
+            <div className="avatar p-1 ">
+              <div className="w-12 rounded-full flex items-center  border border-transparent  group-hover:shadow-lg  group-hover:shadow-emerald-500 group-hover:border group-hover: group-hover:border-emerald-400">
                 <img
                   src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item.backdrop_path}`}
                   alt={item.title}
+                  className="group-hover:scale-110 duration-500 "
                 />
               </div>
             </div>
