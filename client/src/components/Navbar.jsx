@@ -57,12 +57,15 @@ const Navbar = () => {
         </div>
         {/* Auth */}
         <div className="flex items-center gap-3">
-          <button>Register</button>
+          <Link to="/register">Register</Link>
           <div className="w-[1px] h-[35px] bg-white"></div>
-          <button className="btn flex gap-2 bg-red-500 text-white text-md font-semibold ">
+          <Link
+            to="/login"
+            className="btn flex gap-2 bg-red-500 text-white text-md font-semibold "
+          >
             <BsFillLockFill className="text-xl" />
             Log In
-          </button>
+          </Link>
         </div>
         <div className="md:hidden items-center flex text-2xl text-white font-semibold">
           {burgerMenu ? (
@@ -106,7 +109,7 @@ const Navbar = () => {
               }}
               className="justify-center  text-center focus:bg-black"
             >
-              Movies
+              Series
             </Link>
           </li>{" "}
           <li className="hover:text-red-400 w-full  ">
@@ -129,7 +132,7 @@ const Navbar = () => {
           </form>
         </ul>
       </div>
-      <div className="md:[1180px] w-full h-1 bg-red-500"></div>
+      <div className="md:w-[1180px] w-full h-1 bg-red-500 mx-auto"></div>
     </div>
   );
 };

@@ -1,7 +1,12 @@
 import React from "react";
+import Popular from "./components/Popular";
 
 const Home = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Popular />
+    </div>
+  );
 };
 
 export default Home;
