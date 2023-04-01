@@ -51,7 +51,6 @@ export const getTopRatedSeries = async () => {
   const movieDetailsUrl = `https://api.themoviedb.org/3/tv/top_rated?api_key=${envTmbd}&language=en-US&page=1`;
   try {
     const product = await axios.get(movieDetailsUrl);
-    console.log(product.data.results);
     return product.data.results;
   } catch (error) {
     console.log(error);
@@ -62,8 +61,18 @@ export const getSeriesTrailer = async (id) => {
   const movieDetailsUrl = `https://api.themoviedb.org/3/tv/${id}/videos?api_key=${envTmbd}&language=en-US`;
   try {
     const product = await axios.get(movieDetailsUrl);
-    console.log(product.data.results);
     return product.data.results;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getSeries = async (id) => {
+  const movieDetailsUrl = `https://api.themoviedb.org/3/tv/${id}?api_key=${envTmbd}&language=en-US`;
+  try {
+    const product = await axios.get(movieDetailsUrl);
+    console.log(product.data);
+    return product.data;
   } catch (error) {
     console.log(error);
   }

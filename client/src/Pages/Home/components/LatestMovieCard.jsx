@@ -21,7 +21,7 @@ const LatestMovieCard = ({ item }) => {
         </div>
       ) : (
         <img
-          src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item.backdrop_path}`}
+          src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item.poster_path}`}
           alt=""
         />
       )}
