@@ -71,8 +71,21 @@ export const getSeries = async (id) => {
   const movieDetailsUrl = `https://api.themoviedb.org/3/tv/${id}?api_key=${envTmbd}&language=en-US`;
   try {
     const product = await axios.get(movieDetailsUrl);
-    console.log(product.data);
     return product.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getPopularSeries = async (d) => {
+  const movieDetailsUrl = `https://api.themoviedb.org/3/tv/popular?api_key=${envTmbd}&language=en-US&page=1`;
+  try {
+    const product = await axios.get(movieDetailsUrl);
+    const newArray = [];
+    for (let i = 0; i < 10; i++) {
+      newArray.push(product.data.results[i]);
+    }
+    return newArray;
   } catch (error) {
     console.log(error);
   }

@@ -28,7 +28,7 @@ const SeriesCard = ({ item }) => {
         hoverTimeout = setTimeout(() => {
           setIsShown(true);
           setMute(false);
-        }, 1000);
+        }, 800);
       }}
       onMouseLeave={() => {
         clearTimeout(hoverTimeout);
@@ -90,7 +90,7 @@ const SeriesCard = ({ item }) => {
           <div className="p-2 flex  flex-col gap-2  bg-[#212529]">
             <div className="flex flex-col">
               <h1 className="font-semibold text-xl text-white">{item.name}</h1>
-              <h1 className="line-clamp-5">{item.overview}</h1>
+              <h1 className="line-clamp-5 text-gray-200">{item.overview}</h1>
             </div>
             <div className="flex w-full justify-between">
               <h1>{item.first_air_date.slice(0, 4)}</h1>

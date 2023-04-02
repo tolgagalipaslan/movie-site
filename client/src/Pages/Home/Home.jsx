@@ -4,6 +4,8 @@ import UpComing from "./components/UpComing";
 import Latest from "./components/Latest";
 import SideUp from "./components/SideUp";
 import Series from "./components/Series";
+import SeriesTopRated from "./components/SeriesTopRated";
+import Discover from "./components/Discover";
 
 const Home = () => {
   return (
@@ -16,8 +18,9 @@ const Home = () => {
       </div>
       <div className="flex md:w-[1180px] gap-2 bg-[#212529]  mx-auto">
         <Series />
-        <SideUp />
+        <SeriesTopRated />
       </div>
+      <Discover />
     </div>
   );
 };
