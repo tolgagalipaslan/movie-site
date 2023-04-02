@@ -23,17 +23,19 @@ const Discover = () => {
     setPopularData(data.data.results);
     setGenreMovie(genre.data);
   };
-
+  const myArray = Array.from({ length: 20 }, (_, index) => index + 1);
   return (
     <div className="md:w-[1180px] mx-auto bg-[#212529] p-2">
-      <div className="p-2  bg-[#191d20] flex items-start w-fit rounded-t-md">
+      <div className="p-2  bg-[#14171a] flex items-start w-fit rounded-t-md">
         <h1>Discover</h1>
       </div>
-      <div className="bg-[#191d20] rounded-r-md rounded-b-md p-4">
+      <div className="bg-[#14171a] rounded-r-md rounded-b-md p-4">
         <Swiper
-          spaceBetween={0}
+          spaceBetween={15}
+          autoHeight={true}
           autoplay={{
             delay: 5000,
+
             disableOnInteraction: false,
           }}
           breakpoints={{
@@ -56,7 +58,7 @@ const Discover = () => {
           loop
           navigation={true}
           modules={[Autoplay, Navigation]}
-          className=" forYouBanner rounded-md"
+          className=" forYouBanner rounded-md border-none "
         >
           {popularData?.map((item, i) => (
             <SwiperSlide key={i} className="bg-black">
