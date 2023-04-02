@@ -8,6 +8,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
+import { ImSpinner3 } from "react-icons/im";
 const Popular = () => {
   const envTmbd = import.meta.env.VITE_API_TMPDB;
   const dataURL = `https://api.themoviedb.org/3/movie/popular?api_key=${envTmbd}&language=en-US&page=1`;
@@ -23,7 +24,7 @@ const Popular = () => {
     setPopularData(data.data.results);
     setGenreMovie(genre.data);
   };
-
+  const myArray = Array.from({ length: 20 }, (_, index) => index + 1);
   return (
     <div className="md:w-[1180px] mx-auto">
       <Swiper
@@ -52,13 +53,28 @@ const Popular = () => {
         loop
         navigation={true}
         modules={[Autoplay, Navigation]}
-        className=" forYouBanner rounded-md"
+        className=" forYouBanner rounded-md  h-[354px]"
       >
-        {popularData?.map((item, i) => (
-          <SwiperSlide key={i} className="bg-[#212529]">
-            <MovieCard item={item} genreMovie={genreMovie} />
-          </SwiperSlide>
-        ))}
+        {" "}
+        {popularData.length !== 0
+          ? popularData?.map((item, i) => (
+              <SwiperSlide key={i} className="bg-[#212529]">
+                <MovieCard item={item} genreMovie={genreMovie} />
+              </SwiperSlide>
+            ))
+          : myArray.map((i) => (
+              <SwiperSlide key={i}>
+                {" "}
+                <div
+                  key={i}
+                  className="relative flex group items-center justify-center p-1 "
+                >
+                  <div className="animate-pulse bg-gray-600 w-full  flex items-center justify-center   h-[354px]">
+                    <ImSpinner3 className="text-4xl animate-spin opacity-70" />
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
       </Swiper>
     </div>
   );

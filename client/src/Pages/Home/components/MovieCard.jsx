@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { getSingleMovie } from "../../../helpers/Api";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const MovieCard = ({ item, genreMovie }) => {
   const [genresArray, setGenresArray] = useState([]);
   useEffect(() => {
@@ -9,11 +11,13 @@ const MovieCard = ({ item, genreMovie }) => {
   }, [item.id]);
 
   return (
-    <div className="relative flex group items-center justify-center">
-      <img
+    <div className="relative flex group items-center justify-center h-[354px] bg-gray-600 ">
+      <LazyLoadImage
+        effect="blur"
         src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item.backdrop_path}`}
+        placeholderSrc={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item.backdrop_path}`}
         alt=""
-        className="object-center"
+        className="object-center "
       />
       <div className="w-full h-full absolute z-10 bg-black opacity-20  group-hover:opacity-20  group-hover:backdrop-blur-md  duration-500  "></div>
       <div className="md:w-full  h-full w-[300px] gap-2 absolute z-50   group-hover:backdrop-blur-sm">

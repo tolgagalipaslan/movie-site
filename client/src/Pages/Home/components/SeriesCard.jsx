@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { getSeries, getSeriesTrailer } from "../../../helpers/Api";
 import ReactPlayer from "react-player";
 import { AiFillStar } from "react-icons/ai";
-import { GiSpeaker, GiSpeakerOff } from "react-icons/gi";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const SeriesCard = ({ item }) => {
   const [ytVideo, setytVideo] = useState([]);
   const [data, setData] = useState([]);
@@ -12,7 +13,7 @@ const SeriesCard = ({ item }) => {
   useEffect(() => {
     getSeriesTrailer(item.id).then((res) => setytVideo(res));
     getSeries(item.id).then((res) => setData(res));
-  }, [item.id]);
+  }, [item.id, isShown]);
 
   const resetVideo = () => {
     const currentTime = playerRef.current.getCurrentTime();
@@ -20,6 +21,7 @@ const SeriesCard = ({ item }) => {
       playerRef.current.seekTo(0);
     }
   };
+
   let hoverTimeout;
   return (
     <div
@@ -34,7 +36,6 @@ const SeriesCard = ({ item }) => {
         clearTimeout(hoverTimeout);
         setIsShown(false);
         setMute(true);
-        resetVideo();
       }}
     >
       <div className="p-2   bg-[#191d20] group  ">
@@ -45,25 +46,24 @@ const SeriesCard = ({ item }) => {
               <div className="w-[380px] h-[250px] bg-white"></div>
             ) : (
               <ReactPlayer
-                url={`https://www.youtube.com/watch?v=${ytVideo[0]?.key}`}
                 width="380px"
                 height="250px"
                 ref={playerRef}
-                muted={mute}
                 playing={isShown}
                 loop={true}
-                volume={0.1}
+                volume={0.2}
                 config={{
                   youtube: {
                     playerVars: {
                       modestbranding: 1,
+                      origin: window.location.origin,
                       rel: 0,
                       showinfo: 0,
-                      origin: "https://movie-web-site-9xug.onrender.com",
                     },
-                    origin: "https://movie-web-site-9xug.onrender.com",
                   },
                 }}
+                onPause={resetVideo}
+                url={`https://www.youtube.com/watch?v=${ytVideo[0]?.key}`}
               />
             )}
 
@@ -107,8 +107,10 @@ const SeriesCard = ({ item }) => {
         <div className="flex gap-2 p-1 bg-[#212529] rounded-full hover:bg-[#3b434a]  duration-500">
           <div className="avatar p-1 ">
             <div className="w-12 rounded-full flex items-center  border border-transparent  group-hover:shadow-lg  group-hover:shadow-emerald-500 group-hover:border group-hover: group-hover:border-emerald-400">
-              <img
+              <LazyLoadImage
+                effect="blur"
                 src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item.poster_path}`}
+                placeholderSrc={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item.poster_path}`}
                 alt="title"
                 className="group-hover:scale-110 duration-500 "
               />

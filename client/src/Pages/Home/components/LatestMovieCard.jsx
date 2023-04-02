@@ -3,6 +3,8 @@ import { BsFillPeopleFill } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { ImSpinner3 } from "react-icons/im";
 import { getSingleMovie } from "../../../helpers/Api";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const LatestMovieCard = ({ item }) => {
   const [genresArray, setGenresArray] = useState([]);
   useEffect(() => {
@@ -10,7 +12,7 @@ const LatestMovieCard = ({ item }) => {
   }, [item.id]);
 
   return (
-    <div className="relative flex group h-full rounded-md border-2 border-[#32131200] hover:shadow-emerald-500 hover:shadow-lg   hover:border-emerald-300 overflow-hidden">
+    <div className="relative flex group h-[280px] rounded-md border-2 border-[#32131200] hover:shadow-emerald-500 hover:shadow-lg   hover:border-emerald-300 overflow-hidden">
       {item.backdrop_path === null ? (
         <div
           src=""
@@ -20,8 +22,10 @@ const LatestMovieCard = ({ item }) => {
           <ImSpinner3 className="text-4xl animate-spin opacity-70" />
         </div>
       ) : (
-        <img
+        <LazyLoadImage
+          effect="blur"
           src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item.poster_path}`}
+          placeholderSrc={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item.poster_path}`}
           alt=""
         />
       )}
