@@ -38,7 +38,7 @@ const SeriesCard = ({ item }) => {
       }}
     >
       <div className="p-2   bg-[#191d20] group  ">
-        <div className="h-0  w-full absolute top-0 left-full z-50 opacity-0 flex bg-black group-hover:flex-col gap-2  group-hover:p-4 rounded-md group-hover:shadow-md group-hover:shadow-emerald-400 group-hover:border-2 group-hover:opacity-100 border-emerald-300 overflow-hidden group-hover:h-[500px] items-center duration-500">
+        <div className="h-0  w-full absolute top-0 left-full z-50 opacity-0 md:flex hidden bg-black group-hover:flex-col gap-2  group-hover:p-4 rounded-md group-hover:shadow-md group-hover:shadow-emerald-400 group-hover:border-2 group-hover:opacity-100 border-emerald-300 overflow-hidden group-hover:h-[500px] items-center duration-500">
           {" "}
           <div className="relative rounded-md overflow-hidden w-fit h-fit  ">
             {ytVideo.length === 0 ? (

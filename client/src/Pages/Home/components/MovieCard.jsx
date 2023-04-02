@@ -9,13 +9,14 @@ const MovieCard = ({ item, genreMovie }) => {
   }, [item.id]);
 
   return (
-    <div className="relative flex group">
+    <div className="relative flex group items-center justify-center">
       <img
         src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item.backdrop_path}`}
         alt=""
+        className="object-center"
       />
       <div className="w-full h-full absolute z-10 bg-black opacity-20  group-hover:opacity-20  group-hover:backdrop-blur-md  duration-500  "></div>
-      <div className="w-full h-full  gap-2 absolute z-50   group-hover:backdrop-blur-sm">
+      <div className="md:w-full  h-full w-[300px] gap-2 absolute z-50   group-hover:backdrop-blur-sm">
         <div className="h-4/6 w-full      px-6 opacity-0 group-hover:opacity-80 duration-500   items-center justify-center flex flex-col gap-2">
           <p className="line-clamp-6 text-gray-200">{item.overview}</p>
           <div>

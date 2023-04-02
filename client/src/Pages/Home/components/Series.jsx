@@ -16,7 +16,7 @@ const Series = () => {
         <h1>Top Rated Series</h1>
       </div>
       <div className="rounded-r-md rounded-b-md w-full flex p-2 bg-[#191d20]">
-        <div className="grid grid-cols-2  w-full">
+        <div className="grid md:grid-cols-2  grid-cols-1 w-full">
           {item?.map((item, i) => (
             <SeriesCard item={item} key={i} />
           ))}

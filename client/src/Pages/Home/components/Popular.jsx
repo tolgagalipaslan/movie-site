@@ -25,7 +25,7 @@ const Popular = () => {
   };
 
   return (
-    <div className="w-[1180px] mx-auto">
+    <div className="md:w-[1180px] mx-auto">
       <Swiper
         spaceBetween={0}
         autoplay={{
@@ -55,7 +55,7 @@ const Popular = () => {
         className=" forYouBanner rounded-md"
       >
         {popularData?.map((item, i) => (
-          <SwiperSlide key={i} className="bg-black">
+          <SwiperSlide key={i} className="bg-[#212529]">
             <MovieCard item={item} genreMovie={genreMovie} />
           </SwiperSlide>
         ))}

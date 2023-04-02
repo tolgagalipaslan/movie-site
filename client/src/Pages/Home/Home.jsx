@@ -12,11 +12,11 @@ const Home = () => {
     <div>
       <Popular />
       <UpComing />
-      <div className="flex md:w-[1180px] gap-2 bg-[#212529]  mx-auto">
+      <div className="flex md:w-[1180px] md:flex-row flex-col gap-2 bg-[#212529]  mx-auto">
         <Latest />
         <SideUp />
       </div>
-      <div className="flex md:w-[1180px] gap-2 bg-[#212529]  mx-auto">
+      <div className="flex md:w-[1180px] gap-2 md:flex-row flex-col bg-[#212529]  mx-auto">
         <Series />
         <SeriesTopRated />
       </div>

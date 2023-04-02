@@ -9,7 +9,7 @@ const SideUp = () => {
   }, []);
 
   return (
-    <div className="w-3/12  h-full p-2 flex flex-col">
+    <div className="md:w-3/12  h-full p-2 flex flex-col">
       <div className="p-2  bg-[#191d20] flex items-start w-fit rounded-t-md">
         <h1>Top Rated</h1>
       </div>
