@@ -10,12 +10,12 @@ const LatestMovieCard = ({ item }) => {
   }, [item.id]);
 
   return (
-    <div className="relative flex group h-fit  rounded-md border-2 border-[#32131200] hover:shadow-emerald-500 hover:shadow-lg   hover:border-emerald-300 overflow-hidden">
+    <div className="relative flex group h-full rounded-md border-2 border-[#32131200] hover:shadow-emerald-500 hover:shadow-lg   hover:border-emerald-300 overflow-hidden">
       {item.backdrop_path === null ? (
         <div
           src=""
           alt=""
-          className="animate-pulse bg-gray-700 w-full h-full flex items-center justify-center"
+          className="animate-pulse bg-gray-500 w-full  flex items-center justify-center "
         >
           <ImSpinner3 className="text-4xl animate-spin opacity-70" />
         </div>

@@ -45,6 +45,7 @@ const SeriesCard = ({ item }) => {
               <div className="w-[380px] h-[250px] bg-white"></div>
             ) : (
               <ReactPlayer
+                url={`https://www.youtube.com/watch?v=${ytVideo[0]?.key}`}
                 width="380px"
                 height="250px"
                 ref={playerRef}
@@ -58,10 +59,11 @@ const SeriesCard = ({ item }) => {
                       modestbranding: 1,
                       rel: 0,
                       showinfo: 0,
+                      origin: "https://movie-web-site-9xug.onrender.com",
                     },
+                    origin: "https://movie-web-site-9xug.onrender.com",
                   },
                 }}
-                url={`https://www.youtube.com/watch?v=${ytVideo[0]?.key}`}
               />
             )}
 
