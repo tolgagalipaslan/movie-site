@@ -17,7 +17,7 @@ const Latest = () => {
           <div className="tab tab-lg tab-lifted ">Large</div>
           <div className="tab tab-lg tab-lifted">Large</div>
         </div>
-        <div className=" w-full p-3 bg-[#191d20]  grid grid-cols-4  gap-5">
+        <div className=" w-full p-3 bg-[#191d20]  grid md:grid-cols-4 grid-cols-2   gap-5">
           {item?.map((item, i) => (
             <LatestMovieCard key={i} item={item} />
           ))}

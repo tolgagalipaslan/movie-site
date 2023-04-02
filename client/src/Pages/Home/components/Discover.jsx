@@ -25,7 +25,7 @@ const Discover = () => {
   };
 
   return (
-    <div className="w-[1180px] mx-auto bg-[#212529] p-2">
+    <div className="md:w-[1180px] mx-auto bg-[#212529] p-2">
       <div className="p-2  bg-[#191d20] flex items-start w-fit rounded-t-md">
         <h1>Discover</h1>
       </div>
