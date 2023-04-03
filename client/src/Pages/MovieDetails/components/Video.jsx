@@ -86,7 +86,7 @@ const Video = ({ item }) => {
                     </p>
                     <div className="flex justify-between">
                       <h1>Year : {review?.created_at.slice(0, 4)}</h1>
-                      <h1>Rate : {review?.author_details?.rating || 0}</h1>
+                      <h1>Rate: {review?.author_details?.rating || 0}</h1>
                     </div>
                   </div>
                 </div>
