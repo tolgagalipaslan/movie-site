@@ -14,11 +14,6 @@ const Latest = () => {
   return (
     <div className="md:w-9/12 w-full flex  flex-col     p-2 ">
       <div className="bg-[#191d20] w-full  flex flex-col items-center justify-center  rounded-md ">
-        <div className="tabs w-full  pt-2 px-2 rounded-t-md  ">
-          <div className="tab tab-lg tab-lifted tab-active ">Large</div>
-          <div className="tab tab-lg tab-lifted ">Large</div>
-          <div className="tab tab-lg tab-lifted">Large</div>
-        </div>
         <div className=" w-full p-3 bg-[#191d20]  grid md:grid-cols-4 grid-cols-2  h-fit  gap-5">
           {item.length !== 0
             ? item?.map((item, i) => <LatestMovieCard key={i} item={item} />)

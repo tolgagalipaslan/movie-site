@@ -58,7 +58,7 @@ const MovieDet = ({ item }) => {
                 {item?.release_date.slice(0, 4)}
               </span>
             )}
-            {item?.production_countries && (
+            {item?.production_countries?.iso_3166_1 && (
               <span className="px-2 items-center flex justify-center w-fit  bg-gray-600 text-white rounded-md">
                 {item?.production_countries[0].iso_3166_1}
               </span>

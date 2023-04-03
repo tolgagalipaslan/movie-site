@@ -18,8 +18,8 @@ const SideUp = () => {
       <div className="rounded-r-md rounded-b-md overflow-hidden ">
         {item.length !== 0
           ? item?.map((item, i) => (
-              <Link to={`/movieDetails/${item.id}`}>
-                <div key={i} className="p-2   bg-[#191d20] group  ">
+              <Link to={`/movieDetails/${item.id}`} key={i}>
+                <div className="p-2   bg-[#191d20] group  ">
                   <div className="flex gap-2 p-1 bg-[#212529] rounded-l-full hover:bg-[#3b434a]  duration-500">
                     <div className="avatar p-1 ">
                       <div className="w-12 rounded-full flex items-center  border border-transparent  group-hover:shadow-lg  group-hover:shadow-emerald-500 group-hover:border group-hover: group-hover:border-emerald-400">
