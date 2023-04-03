@@ -10,7 +10,32 @@ export const getSingleMovie = async (id) => {
     console.log(error);
   }
 };
-
+export const getSingleMovieDetails = async (id) => {
+  const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${envTmbd}&language=en-US`;
+  try {
+    const product = await axios.get(movieDetailsUrl);
+    return product.data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+export const getSingleMovieCredits = async (id) => {
+  const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${envTmbd}&language=en-US`;
+  try {
+    const product = await axios.get(movieDetailsUrl);
+    const newArray = [];
+    if (product.data.cast.length > 10) {
+      for (let i = 0; i < 10; i++) {
+        newArray.push(product.data.cast[i]);
+      }
+      return newArray;
+    } else {
+      return product.data.cast;
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+};
 export const getUpComingMovies = async () => {
   const movieDetailsUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=${envTmbd}&language=en-US&page=1`;
   try {
@@ -62,6 +87,32 @@ export const getSeriesTrailer = async (id) => {
   try {
     const product = await axios.get(movieDetailsUrl);
     return product.data.results;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getMovieTrailer = async (id) => {
+  const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${envTmbd}&language=en-US`;
+  try {
+    const product = await axios.get(movieDetailsUrl);
+    return product.data.results[0];
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getMovieReviews = async (id) => {
+  const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${envTmbd}&language=en-US&page=1S`;
+  try {
+    const product = await axios.get(movieDetailsUrl);
+    const newArray = [];
+    if (product.data.results.length > 10) {
+      for (let i = 0; i < 5; i++) {
+        newArray.push(product.data.results[i]);
+      }
+      return newArray;
+    } else {
+      return product.data.results;
+    }
   } catch (error) {
     console.log(error);
   }

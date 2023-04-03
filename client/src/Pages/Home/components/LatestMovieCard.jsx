@@ -5,6 +5,7 @@ import { ImSpinner3 } from "react-icons/im";
 import { getSingleMovie } from "../../../helpers/Api";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { Link } from "react-router-dom";
 const LatestMovieCard = ({ item }) => {
   const [genresArray, setGenresArray] = useState([]);
   useEffect(() => {
@@ -12,7 +13,10 @@ const LatestMovieCard = ({ item }) => {
   }, [item.id]);
 
   return (
-    <div className="relative flex group h-[280px] rounded-md border-2 border-[#32131200] hover:shadow-emerald-500 hover:shadow-lg   hover:border-emerald-300 overflow-hidden">
+    <Link
+      to={`/movieDetails/${item.id}`}
+      className="relative flex group h-[280px] rounded-md border-2 border-[#32131200] hover:shadow-emerald-500 hover:shadow-lg   hover:border-emerald-300 overflow-hidden"
+    >
       {item.backdrop_path === null ? (
         <div
           src=""
@@ -59,7 +63,7 @@ const LatestMovieCard = ({ item }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

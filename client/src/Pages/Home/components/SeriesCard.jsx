@@ -63,7 +63,7 @@ const SeriesCard = ({ item }) => {
                   },
                 }}
                 onPause={resetVideo}
-                url={`https://www.youtube.com/watch?v=${ytVideo[0]?.key}`}
+                url={`https://www.youtube.com/embed/${ytVideo[0]?.key}`}
               />
             )}
 

@@ -4,6 +4,7 @@ import { AiFillStar } from "react-icons/ai";
 import { getSingleMovie } from "../../../helpers/Api";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { Link } from "react-router-dom";
 const MovieCard = ({ item, genreMovie }) => {
   const [genresArray, setGenresArray] = useState([]);
   useEffect(() => {
@@ -11,7 +12,10 @@ const MovieCard = ({ item, genreMovie }) => {
   }, [item.id]);
 
   return (
-    <div className="relative flex group items-center justify-center h-[354px] bg-[#191d20] ">
+    <Link
+      to={`/movieDetails/${item.id}`}
+      className="relative flex group items-center justify-center h-[354px] bg-[#191d20] "
+    >
       <LazyLoadImage
         effect="blur"
         src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item.backdrop_path}`}
@@ -49,7 +53,7 @@ const MovieCard = ({ item, genreMovie }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

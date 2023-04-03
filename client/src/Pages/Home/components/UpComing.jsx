@@ -3,6 +3,7 @@ import { getUpComingMovies } from "../../../helpers/Api";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { ImSpinner3 } from "react-icons/im";
+import { Link } from "react-router-dom";
 const UpComing = () => {
   const [item, setItem] = useState([]);
   const myArray = Array.from({ length: 8 }, (_, index) => index + 1);
@@ -17,7 +18,8 @@ const UpComing = () => {
       <div className="p-3 px-9 bg-[#191d20] w-full  gap-1  grid md:grid-cols-8  grid-cols-3 rounded-b-md">
         {item.length !== 0
           ? item?.map((item, i) => (
-              <div
+              <Link
+                to={`/movieDetails/${item.id}`}
                 key={i}
                 className="flex flex-col  gap-2 mt-3 items-center p-1 h-[160px]"
               >
@@ -35,7 +37,7 @@ const UpComing = () => {
                 <h1 className=" text-white font-semibold  text-center hover:text-red-400 line-clamp-2">
                   {item.title}
                 </h1>
-              </div>
+              </Link>
             ))
           : myArray.map((i) => (
               <div
