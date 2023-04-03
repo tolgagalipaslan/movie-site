@@ -8,15 +8,19 @@ const MovieDet = ({ item }) => {
     getSingleMovieCredits(item.id).then((res) => setData(res));
   }, [item.id]);
   return (
-    <div className="md:w-[1180px] md:h-[550px] w-full items-center justify-between flex gap-2 bg-[#212529] p-5 mx-auto">
-      <div className="w-3/12 rounded-md overflow-hidden ">
-        <img
-          src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item?.poster_path}`}
-          alt=""
-          className=" rounded-md w-full h-full hover:scale-110 duration-500"
-        />
+    <div className="md:w-[1180px] md:h-[550px] w-full items-center justify-between flex  md:flex-row  flex-col gap-2 bg-[#212529] p-5 mx-auto">
+      <div className="md:w-3/12  rounded-md overflow-hidden ">
+        {item.poster_path ? (
+          <img
+            src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item?.poster_path}`}
+            alt=""
+            className=" rounded-md w-full md:h-full  hover:scale-110 duration-500"
+          />
+        ) : (
+          <div className="rounded-md w-full h-full bg-gray-700"></div>
+        )}
       </div>
-      <div className="w-8/12 h-full rounded-md flex flex-col  ">
+      <div className="md:w-8/12 w-full h-full rounded-md flex flex-col  ">
         {" "}
         <h1 className="w-fit bg-[#191d20] p-2 rounded-t-md text-lg font-semibold">
           {item.original_title}
@@ -60,7 +64,7 @@ const MovieDet = ({ item }) => {
               </span>
             )}
           </h1>
-          <h1 className="flex items-center gap-2 font-semibold text-gray-500">
+          <h1 className="flex items-center gap-2 font-semibold text-gray-500 flex-wrap">
             Genres :{" "}
             {item?.genres &&
               item.genres.map((ite, i) => (

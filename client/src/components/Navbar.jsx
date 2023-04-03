@@ -8,7 +8,7 @@ const Navbar = () => {
     <div className="w-full  md:mt-2 ">
       <div className="md:w-[1180px] w-full bg-[#212529]  mx-auto flex items-center md:rounded-t-lg p-2 justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2 ">
+        <Link to="/" className="flex items-center gap-2 ">
           <img src="/assets/logo.png" alt="" className="h-16 rounded-full" />
           <h1 className="md:flex hidden text-2xl text-white ">
             HD{" "}
@@ -16,7 +16,7 @@ const Navbar = () => {
               Plago
             </span>{" "}
           </h1>
-        </div>
+        </Link>
 
         {/* Navigate */}
         <div className="md:flex  hidden items-center gap-4  text-lg text-white">

@@ -5,7 +5,7 @@ import { getSingleMovie } from "../../../helpers/Api";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
-const MovieCard = ({ item, genreMovie }) => {
+const MovieCard = ({ item }) => {
   const [genresArray, setGenresArray] = useState([]);
   useEffect(() => {
     getSingleMovie(item.id).then((res) => setGenresArray(res));
@@ -15,14 +15,21 @@ const MovieCard = ({ item, genreMovie }) => {
     <Link
       to={`/movieDetails/${item.id}`}
       className="relative flex group items-center justify-center h-[354px] bg-[#191d20] "
+      onClick={(e) => {
+        window.scrollTo(0, 0);
+      }}
     >
-      <LazyLoadImage
-        effect="blur"
-        src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item.backdrop_path}`}
-        placeholderSrc={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item.backdrop_path}`}
-        alt=""
-        className="object-center w-full h-full object-fit "
-      />
+      {item.backdrop_path ? (
+        <LazyLoadImage
+          effect="blur"
+          src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item.backdrop_path}`}
+          placeholderSrc={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item.backdrop_path}`}
+          alt=""
+          className="object-center w-full h-full object-fit "
+        />
+      ) : (
+        <div className="object-center w-full h-full object-fit"></div>
+      )}
       <div className="w-full h-full absolute z-10 py-2 bg-black opacity-20  group-hover:opacity-20  group-hover:backdrop-blur-md  duration-500  "></div>
       <div className="md:w-full  h-full w-[300px] gap-2 absolute z-50   group-hover:backdrop-blur-sm">
         <div className="h-4/6 w-full      px-6 opacity-0 group-hover:opacity-80 duration-500   items-center justify-center flex flex-col gap-2">

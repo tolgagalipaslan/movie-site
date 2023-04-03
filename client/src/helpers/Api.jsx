@@ -100,6 +100,15 @@ export const getMovieTrailer = async (id) => {
     console.log(error);
   }
 };
+export const getSmilarMovie = async (id) => {
+  const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${envTmbd}&language=en-US&page=1`;
+  try {
+    const product = await axios.get(movieDetailsUrl);
+    return product.data.results;
+  } catch (error) {
+    console.log(error);
+  }
+};
 export const getMovieReviews = async (id) => {
   const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${envTmbd}&language=en-US&page=1S`;
   try {
