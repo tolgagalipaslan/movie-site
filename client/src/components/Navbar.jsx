@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { BsFillLockFill } from "react-icons/bs";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const Navbar = () => {
   const [burgerMenu, setBurgerMenu] = useState(true);
   return (
@@ -9,7 +11,13 @@ const Navbar = () => {
       <div className="md:w-[1180px] w-full bg-[#212529]  mx-auto flex items-center md:rounded-t-lg p-2 justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 ">
-          <img src="/assets/logo.png" alt="" className="h-16 rounded-full" />
+          <LazyLoadImage
+            src="/assets/logo.png"
+            effect="blur"
+            placeholderSrc="/assets/logo.png"
+            alt=""
+            className="h-16 rounded-full"
+          />
           <h1 className="md:flex hidden text-2xl text-white ">
             HD{" "}
             <span className="text-orange-400 font-semibold text-3xl underline ">

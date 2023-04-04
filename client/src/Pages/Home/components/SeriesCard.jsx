@@ -51,6 +51,7 @@ const SeriesCard = ({ item }) => {
                 height="250px"
                 ref={playerRef}
                 playing={isShown}
+                muted={true}
                 loop={true}
                 volume={0.2}
                 config={{
@@ -68,27 +69,7 @@ const SeriesCard = ({ item }) => {
               />
             )}
 
-            <div className="absolute z-50 w-full h-full top-0 flex  items-end justify-end ">
-              {/* {mute ? (
-                <div
-                  className="p-5 "
-                  onClick={(e) => {
-                    setMute(false);
-                  }}
-                >
-                  <GiSpeakerOff className="text-3xl text-white hover:scale-110 " />
-                </div>
-              ) : (
-                <div className="p-5 ">
-                  <GiSpeaker
-                    className="text-3xl text-white hover:scale-110 "
-                    onClick={(e) => {
-                      setMute(true);
-                    }}
-                  />
-                </div>
-              )} */}
-            </div>
+            <div className="absolute z-50 w-full h-full top-0 flex  items-end justify-end "></div>
           </div>
           <div className="p-2 flex  flex-col gap-2  bg-[#212529]">
             <div className="flex flex-col">

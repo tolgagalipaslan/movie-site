@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 import { getSingleMovieCredits } from "../../../helpers/Api";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const MovieDet = ({ item }) => {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -11,8 +12,10 @@ const MovieDet = ({ item }) => {
     <div className="md:w-[1180px] md:h-[550px] w-full items-center justify-between flex  md:flex-row  flex-col gap-2 bg-[#212529] p-5 mx-auto">
       <div className="md:w-3/12  rounded-md overflow-hidden ">
         {item.poster_path ? (
-          <img
+          <LazyLoadImage
+            effect="blur"
             src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item?.poster_path}`}
+            placeholderSrc={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item?.poster_path}`}
             alt=""
             className=" rounded-md w-full md:h-full  hover:scale-110 duration-500"
           />
@@ -95,8 +98,10 @@ const MovieDet = ({ item }) => {
                           key={i}
                           className=" rounded-full  flex justify-center w-fit h-fit bg-gray-600 text-white  capitalize items-center "
                         >
-                          <img
+                          <LazyLoadImage
+                            effect="blur"
                             src={`https://www.themoviedb.org/t/p/w138_and_h175_face/${data?.profile_path}`}
+                            placeholderSrc={`https://www.themoviedb.org/t/p/w138_and_h175_face/${data?.profile_path}`}
                             alt=""
                             className=" h-9 w-9 object-cover rounded-full"
                           />
